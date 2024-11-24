@@ -16,7 +16,7 @@ services:
         ipv4_address: 172.10.10.10
   S1:
     image: aoian5173/hadoop5173:latest
-    container_name: hadoop-slave
+    container_name: hadoop-slave1
     environment:
       - JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
       - HADOOP_HOME=/usr/local/hadoop
@@ -25,7 +25,7 @@ services:
       hadoop:
   S2:
     image: aoian5173/hadoop5173:latest
-    container_name: hadoop-slave
+    container_name: hadoop-slave2
     environment:
       - JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
       - HADOOP_HOME=/usr/local/hadoop
