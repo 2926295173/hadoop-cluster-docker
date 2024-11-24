@@ -1,9 +1,12 @@
 version: '3' #第三个版本
 services:
   MS:
-    image: kiwenlau/hadoop:1.0
+    image: aoian5173/hadoop5173:latest
     command: ./start-hadoop.sh
     container_name: hadoop-master
+    environment:
+      - JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
+      - HADOOP_HOME=/usr/local/hadoop
     privileged: true
     ports:
       - 8088:8088
@@ -12,14 +15,20 @@ services:
       hadoop:
         ipv4_address: 172.10.10.10
   S1:
-    image: kiwenlau/hadoop:1.0
+    image: aoian5173/hadoop5173:latest
     container_name: hadoop-slave
+    environment:
+      - JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
+      - HADOOP_HOME=/usr/local/hadoop
     privileged: true
     networks:
       hadoop:
   S2:
-    image: kiwenlau/hadoop:1.0
+    image: aoian5173/hadoop5173:latest
     container_name: hadoop-slave
+    environment:
+      - JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
+      - HADOOP_HOME=/usr/local/hadoop
     privileged: true
     networks:
       hadoop:
@@ -30,3 +39,4 @@ networks:
       config:
         - subnet: 172.10.10.0/24
           gateway: 172.10.10.1
+          
