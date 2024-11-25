@@ -31,6 +31,8 @@ export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
 #export JSVC_HOME=${JSVC_HOME}
 
 export HADOOP_CONF_DIR=${HADOOP_CONF_DIR:-"/etc/hadoop"}
+export HADOOP_SSH_OPTS="-o StrictHostKeyChecking=no"
+
 
 # Extra Java CLASSPATH elements.  Automatically insert capacity-scheduler.
 for f in $HADOOP_HOME/contrib/capacity-scheduler/*.jar; do
